@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/list"
-        android:name="com.helo.juliustracker.FormFragment" />
+        android:name="com.helo.juliustracker.ListDataFragment" />
 
 </navigation>
