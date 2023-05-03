@@ -13,8 +13,11 @@ class SplashScreenActivity : Activity(){
         super.onCreate(savedInstanceState, persistentState)
         splashscreen.setKeepOnScreenCondition{true}
 
-        val intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        splashscreen.setOnExitAnimationListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
