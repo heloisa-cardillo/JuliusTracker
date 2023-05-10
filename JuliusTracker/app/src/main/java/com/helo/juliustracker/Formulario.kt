@@ -1,6 +1,6 @@
 package com.helo.juliustracker
 
-data class Formulario (
+public data class Formulario (
    var peso: Double,
    var cantou: Boolean,
    var quantidadepapa: Int,
@@ -8,30 +8,29 @@ data class Formulario (
    var remedios: List<Medicine>
 )
 
-
-data class Medicine (
+public data class Medicine (
     var nomeremedio: String,
     var vezesaodia: Int,
     var quantidade: Double)
 
 val items = listOf (
     Formulario (
-        peso = 10.0,
+        peso = 40.0,
         cantou = false,
         quantidadepapa = 150,
         comeuracao = true,
         remedios = emptyList()
     ),
     Formulario (
-        peso = 10.0,
-        cantou = false,
+        peso = 42.0,
+        cantou = true,
         quantidadepapa = 150,
         comeuracao = true,
         remedios = emptyList()
     ),
     Formulario (
-        peso = 10.0,
-        cantou = false,
+        peso = 44.0,
+        cantou = true,
         quantidadepapa = 150,
         comeuracao = true,
         remedios = emptyList()
