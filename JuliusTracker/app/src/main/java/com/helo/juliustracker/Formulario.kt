@@ -13,7 +13,7 @@ public data class Medicine (
     var vezesaodia: Int,
     var quantidade: Double)
 
-val items = listOf (
+val listaFormulario = listOf (
     Formulario (
         peso = 40.0,
         cantou = false,
