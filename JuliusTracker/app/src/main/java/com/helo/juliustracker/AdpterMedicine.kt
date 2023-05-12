@@ -1,6 +1,5 @@
 package com.helo.juliustracker
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class AdpterMedicine (private val context: Context, private val itemsformulario: MutableList<Formulario>): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
+class AdpterMedicine (private val itemsformulario:List<Formulario>): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FormularioViewHolder {
         //criar as visualizacoes em tela - criar os itens de lista
         val viewFormulario =
-            LayoutInflater.from(context).inflate(R.layout.fragment_data_formulario, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_data_formulario, parent, false)
         // no from passa o contexto da classe, parametros - class AdapterMedicice (xxx)
         val holder = FormularioViewHolder(viewFormulario)
         return holder
@@ -26,7 +25,12 @@ class AdpterMedicine (private val context: Context, private val itemsformulario:
     override fun onBindViewHolder(holder: FormularioViewHolder, position: Int) {
         //exibir as visualizacoes para o usuario
         holder.peso.text = itemsformulario[position].peso.toString()
-        holder.cantou.text = itemsformulario[position].cantou.toString()
+        //holder.cantou.text = itemsformulario[position].cantou.toString()
+        if (itemsformulario [position].cantou){
+            holder.cantou.text = "ele cantou"
+        } else {
+            holder.cantou.text = "ele nao cantou"
+        }
         holder.comeu.text = itemsformulario[position].comeuracao.toString()
         holder.qtdpapa.text = itemsformulario[position].quantidadepapa.toString()
         holder.remedios.text = itemsformulario[position].remedios.toString()
@@ -38,6 +42,7 @@ class AdpterMedicine (private val context: Context, private val itemsformulario:
         val comeu = itemView.findViewById<Switch>(R.id.switch2)
         val qtdpapa = itemView.findViewById<TextView>(R.id.qtdpapa)
         val remedios = itemView.findViewById<TextView>(R.id.remedios)
+
 
     }
 }
