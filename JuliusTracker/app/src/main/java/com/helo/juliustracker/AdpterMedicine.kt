@@ -3,6 +3,7 @@ package com.helo.juliustracker
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -25,23 +26,21 @@ class AdpterMedicine (private val itemsformulario:List<Formulario>): RecyclerVie
     override fun onBindViewHolder(holder: FormularioViewHolder, position: Int) {
         //exibir as visualizacoes para o usuario
         holder.peso.text = itemsformulario[position].peso.toString()
+        holder.data.text= itemsformulario[position].data.toString()
+
+
         //holder.cantou.text = itemsformulario[position].cantou.toString()
         if (itemsformulario [position].cantou){
             holder.cantou.text = "ele cantou"
         } else {
-            holder.cantou.text = "ele nao cantou"
-        }
-        holder.comeu.text = itemsformulario[position].comeuracao.toString()
-        holder.qtdpapa.text = itemsformulario[position].quantidadepapa.toString()
-        holder.remedios.text = itemsformulario[position].remedios.toString()
+            holder.cantou.text = "ele nao cantou"        }
+
     }
 
-    inner class FormularioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+     class FormularioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val peso = itemView.findViewById<TextView>(R.id.peso)
-        val cantou = itemView.findViewById<Switch>(R.id.switch1)
-        val comeu = itemView.findViewById<Switch>(R.id.switch2)
-        val qtdpapa = itemView.findViewById<TextView>(R.id.qtdpapa)
-        val remedios = itemView.findViewById<TextView>(R.id.remedios)
+        val cantou = itemView.findViewById<TextView>(R.id.cantar)
+        val data = itemView.findViewById<TextView>(R.id.data)
 
 
     }

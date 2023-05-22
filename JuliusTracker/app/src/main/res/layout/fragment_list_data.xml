@@ -7,13 +7,24 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarJ"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_name" />
+        app:title="@string/app_name"
+        android:textAlignment="center"
+        app:titleTextColor="@color/cardin_green" />
 
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/lupa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbarJ" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_teste"
@@ -30,11 +41,15 @@
         android:layout_height="54dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/baltic_sea"
-        android:src="@drawable/moreinsquad"
-        android:tint="@color/white"
+        android:backgroundTint="@color/cardin_green"
+        android:background="@color/cardin_green"
+        app:backgroundTintMode="add"
+        android:src="@drawable/plus"
+        android:tintMode="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+<!--    //corrigir cor do +-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

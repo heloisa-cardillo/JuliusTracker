@@ -6,6 +6,19 @@
 
     <fragment
         android:id="@+id/list"
-        android:name="com.helo.juliustracker.ListDataFragment" />
+        android:name="com.helo.juliustracker.ListDataFragment">
+        <action
+            android:id="@+id/list_to_detail"
+            app:destination="@+id/detail"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.helo.juliustracker.FormFragment" />
+
 
 </navigation>
+
+<!--//casinha = primeira tela que vou ver
+https://developer.android.com/guide/navigation/navigation-getting-started-->

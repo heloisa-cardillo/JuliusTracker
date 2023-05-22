@@ -1,12 +1,15 @@
 package com.helo.juliustracker
 
 import android.os.Bundle
+import android.service.controls.actions.FloatAction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListDataFragment : Fragment() {
 
@@ -33,6 +36,13 @@ class ListDataFragment : Fragment() {
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         recycler_view_teste.adapter= adapterMedicine
 
-        
+        view.findViewById<FloatingActionButton>(R.id.mais).setOnClickListener {
+            findNavController().navigate(R.id.list_to_detail)
+        }
     }
 }
+
+//childFragmentManager.beginTransaction().add(
+//FormFragment(),
+//null
+//).commit()
