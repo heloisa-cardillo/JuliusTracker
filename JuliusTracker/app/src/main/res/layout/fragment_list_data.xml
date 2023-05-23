@@ -46,7 +46,7 @@
         app:backgroundTintMode="add"
         android:src="@drawable/plus"
         android:tintMode="add"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/recycler_view_teste"
         app:layout_constraintEnd_toEndOf="parent" />
 
 <!--    //corrigir cor do +-->

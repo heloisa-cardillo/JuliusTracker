@@ -1,7 +1,6 @@
 package com.helo.juliustracker
 
 import android.os.Bundle
-import android.service.controls.actions.FloatAction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

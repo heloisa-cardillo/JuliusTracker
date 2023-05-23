@@ -3,13 +3,11 @@ package com.helo.juliustracker
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class AdpterMedicine (private val itemsformulario:List<Formulario>): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
+class AdpterMedicine(private val itemsformulario: List<Formulario>): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FormularioViewHolder {
         //criar as visualizacoes em tela - criar os itens de lista
@@ -31,9 +29,9 @@ class AdpterMedicine (private val itemsformulario:List<Formulario>): RecyclerVie
 
         //holder.cantou.text = itemsformulario[position].cantou.toString()
         if (itemsformulario [position].cantou){
-            holder.cantou.text = "ele cantou"
+            holder.cantou.text = "Ele cantou"
         } else {
-            holder.cantou.text = "ele nao cantou"        }
+            holder.cantou.text = "Ele não cantou"        }
 
     }
 

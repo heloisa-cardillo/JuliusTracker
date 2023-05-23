@@ -4,23 +4,48 @@ public data class Formulario(
     var data: String,
     var peso: Double,
     var cantou: Boolean,
-    var quantidadepapa: Int,
     var comeuracao: Boolean,
     var remedios: List<Medicine>
 )
 
 public data class Medicine(
     var nomeremedio: String,
-    var vezesaodia: Int,
-    var quantidade: Double
-)
+    var vezesaodia: String,
+    var data: String,
+    var quantidadepapa: String)
 
+val listaMedice = listOf(
+    Medicine(
+        nomeremedio = "Gardenal",
+        vezesaodia = "3 vezes",
+        data = "22/03",
+        quantidadepapa = "1ml"
+    ),
+    Medicine(
+        nomeremedio = "Rivotril",
+        vezesaodia = "2 vezes",
+        data = "22/03",
+        quantidadepapa = "1ml"
+    ),
+    Medicine(
+        nomeremedio = "Leviracetam",
+        vezesaodia = "3 vezes",
+        data = "22/03",
+        quantidadepapa = "1ml"
+    ),
+    Medicine(
+        nomeremedio = "Valproato",
+        vezesaodia = "3 vezes",
+        data = "22/03",
+        quantidadepapa = "1ml"
+    )
+
+)
 val listaFormulario = listOf(
     Formulario (
         data = "22/03",
         peso = 40.0,
         cantou = false,
-        quantidadepapa = 150,
         comeuracao = true,
         remedios = emptyList()
     ) ,
@@ -28,7 +53,6 @@ val listaFormulario = listOf(
         data = "23/03",
         peso = 42.0,
         cantou = true,
-        quantidadepapa = 150,
         comeuracao = true,
         remedios = emptyList()
     ),
@@ -36,7 +60,6 @@ val listaFormulario = listOf(
         data = "24/03",
         peso = 44.0,
         cantou = true,
-        quantidadepapa = 150,
         comeuracao = true,
         remedios = emptyList()
     )
