@@ -82,15 +82,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linha2"/>
+            android:thumbTint="@color/cardin_green"
+            app:layout_constraintTop_toBottomOf="@id/linha2"
+            tools:checked="true" />
 
         <Switch
             android:id="@+id/switch2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:checked="true"
+            android:thumbTint="@color/cardin_green"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/switch1" />
+            app:layout_constraintTop_toBottomOf="@id/switch1"
+            tools:checked="true" />
 
         <TextView
             android:id="@+id/cantou"

@@ -22,6 +22,7 @@ class FormFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val rv_remedio = view.findViewById<RecyclerView>(R.id.rv_remedio)
         rv_remedio.layoutManager = LinearLayoutManager(requireContext())
         rv_remedio.setHasFixedSize(true)
