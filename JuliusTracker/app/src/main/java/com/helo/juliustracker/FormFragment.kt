@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textfield.TextInputLayout
 
 class FormFragment : Fragment() {
 
@@ -26,6 +27,8 @@ class FormFragment : Fragment() {
         val rv_remedio = view.findViewById<RecyclerView>(R.id.rv_remedio)
         rv_remedio.layoutManager = LinearLayoutManager(requireContext())
         rv_remedio.setHasFixedSize(true)
+       val peso2 =  view.findViewById<TextInputLayout>(R.id.peso2)
+        peso2.editText?.text.toString()
 
 
         val adapterDetails = AdapterDetails(listaMedice)

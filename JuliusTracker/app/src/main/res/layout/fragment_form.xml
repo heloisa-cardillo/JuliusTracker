@@ -42,57 +42,44 @@
             app:layout_constraintTop_toTopOf="@id/toolbarD" />
 
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/peso2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="Peso:"
-            android:textColor="@color/cabbage_pont"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbarD" />
-
-        <TextView
-            android:id="@+id/gramas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="xxx gramas"
-            android:textColor="@color/cardin_green"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/peso2" />
-
-        <View
-            android:id="@+id/linha2"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/gray_suit"
+            android:layout_height="wrap_content"
+            android:hint="Peso"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:helperText="em gramas"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gramas" />
+            app:layout_constraintTop_toBottomOf="@id/toolbarD">
 
-        <Switch
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            app:thumbTint="@color/selector_switch"
             app:layout_constraintEnd_toEndOf="parent"
-            android:thumbTint="@color/cardin_green"
-            app:layout_constraintTop_toBottomOf="@id/linha2"
-            tools:checked="true" />
+            app:layout_constraintTop_toBottomOf="@id/peso2"
+            app:trackTint="@color/selector_switch"
+            tools:checked="false" />
 
-        <Switch
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switch2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:checked="true"
-            android:thumbTint="@color/cardin_green"
+            app:thumbTint="@color/selector_switch"
+            app:trackTint="@color/selector_switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/switch1"
             tools:checked="true" />
@@ -107,7 +94,7 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linha2" />
+            app:layout_constraintTop_toBottomOf="@id/peso2" />
 
         <TextView
             android:id="@+id/comeuracao"
@@ -134,12 +121,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/comeuracao" />
 
-        <TextView
+        <EditText
             android:id="@+id/ml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="x ml"
+            android:hint="x ml"
             android:textColor="@color/cardin_green"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +150,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linha3"/>
+            app:layout_constraintTop_toBottomOf="@id/linha3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -171,4 +158,3 @@
 
 </ScrollView>
 
-    <!--colocar tudo do figma-->

@@ -41,7 +41,7 @@ val listaMedice = listOf(
     )
 
 )
-val listaFormulario = listOf(
+val listaFormulario = mutableListOf(
     Formulario (
         data = "22/03",
         peso = 40.0,
