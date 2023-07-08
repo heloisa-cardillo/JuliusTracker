@@ -21,11 +21,11 @@ class AdapterDetails(private val itemsdetails: List<Medicine>): RecyclerView.Ada
     override fun onBindViewHolder(holder2: DetailsViewHolder, position: Int) {
         //exibir as visualizacoes para o usuario
         holder2.nomeremedio.text = itemsdetails[position].nomeremedio.toString()
-        holder2.vezesaodia.text= itemsdetails[position].vezesaodia.toString()
+//        holder2.vezesaodia.text= itemsdetails[position].vezesaodia.toString()
     }
     class DetailsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nomeremedio = itemView.findViewById<TextView>(R.id.nome_remedio)
-        val vezesaodia = itemView.findViewById<TextView>(R.id.vezes_dia)
+//        val vezesaodia = itemView.findViewById<TextView>(R.id.vezes_dia)
     }
 
 }

@@ -66,9 +66,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            app:thumbTint="@color/selector_switch"
+            android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/peso2"
+            app:thumbTint="@color/selector_switch"
             app:trackTint="@color/selector_switch"
             tools:checked="false" />
 
@@ -77,11 +78,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="10dp"
             android:checked="true"
-            app:thumbTint="@color/selector_switch"
-            app:trackTint="@color/selector_switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/switch1"
+            app:thumbTint="@color/selector_switch"
+            app:trackTint="@color/selector_switch"
             tools:checked="true" />
 
         <TextView
@@ -109,28 +111,26 @@
             app:layout_constraintTop_toBottomOf="@id/cantou" />
 
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/qtdpapa"
-            android:layout_width="wrap_content"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
-            android:text="Quantidade de papinha:"
+            android:hint="Quantidade de papinha:"
             android:textColor="@color/cabbage_pont"
             android:textSize="12sp"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:helperText="em ml"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/comeuracao" />
+            app:layout_constraintTop_toBottomOf="@id/switch2">
 
-        <EditText
-            android:id="@+id/ml"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:hint="x ml"
-            android:textColor="@color/cardin_green"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/qtdpapa" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <View
             android:id="@+id/linha3"
@@ -141,7 +141,7 @@
             android:layout_marginEnd="16dp"
             android:background="@color/gray_suit"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ml" />
+            app:layout_constraintTop_toBottomOf="@id/qtdpapa" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_remedio"
@@ -151,6 +151,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linha3" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="112dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_remedio"
+            android:background="@drawable/save_button"
+            android:backgroundTint="@color/light_green"
+            android:drawableLeft="@drawable/save_icon"
+            android:text="Salvar"
+            android:textAllCaps="false"
+            android:textColor="@color/cardin_green"/>
+
+        <Button
+            android:id="@+id/teste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Teste"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_remedio" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

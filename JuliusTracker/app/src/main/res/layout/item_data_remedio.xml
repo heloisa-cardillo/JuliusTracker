@@ -7,27 +7,29 @@
     android:orientation="horizontal"
     android:paddingBottom="10dp"
     android:background="@color/white">
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nome_remedio"
-        android:layout_width="wrap_content"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:hint="Nome Remedio"
-        android:textColor="@color/cardin_green"
+        android:hint="Nome Remedio:"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:helperText="Vezes ao dia"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <EditText
-        android:id="@+id/vezes_dia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="30dp"
-        app:layout_constraintTop_toBottomOf="@id/nome_remedio"
-        android:hint="Vezes ao dia"
-        android:textColor="@color/cabbage_pont"
-        android:textSize="14sp"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/cardin_green"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <View
         android:id="@+id/linha2"
         android:layout_width="match_parent"
@@ -37,7 +39,7 @@
         android:layout_marginEnd="16dp"
         android:background="@color/gray_suit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vezes_dia" />
+        app:layout_constraintTop_toBottomOf="@id/nome_remedio" />
     <ImageView
         android:id="@+id/seta2"
         android:layout_width="16dp"

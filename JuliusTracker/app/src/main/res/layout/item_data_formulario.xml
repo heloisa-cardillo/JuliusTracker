@@ -7,43 +7,59 @@
     android:paddingBottom="8dp"
     android:background="@color/white">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/data"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data"
+        android:textColor="@color/cabbage_pont"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp">
 
-        <EditText
-            android:id="@+id/data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="16dp"
-            android:hint="Data"
-            android:textColor="@color/cabbage_pont"
-            android:textSize="12sp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/peso"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="x gramas"
+        app:layout_constraintStart_toStartOf="@id/data"
+        app:layout_constraintTop_toBottomOf="@id/data"
+        android:textColor="@color/cardin_green"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp">
 
-        <EditText
-            android:id="@+id/peso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="x gramas"
-            app:layout_constraintStart_toStartOf="@id/data"
-            app:layout_constraintTop_toBottomOf="@id/data"
-            android:textColor="@color/cardin_green"
-            android:textSize="16sp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cantar"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/peso"
+        app:layout_constraintTop_toBottomOf="@id/peso"
+        android:hint="Ele cantou!"
+        android:textColor="@color/cabbage_pont"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp">
 
-        <EditText
-            android:id="@+id/cantar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/peso"
-            app:layout_constraintTop_toBottomOf="@id/peso"
-            android:hint="Ele cantou!"
-            android:textColor="@color/cabbage_pont"
-            android:textSize="14sp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
         <View
             android:id="@+id/linha"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cantar"
             android:background="@color/gray_suit" />
