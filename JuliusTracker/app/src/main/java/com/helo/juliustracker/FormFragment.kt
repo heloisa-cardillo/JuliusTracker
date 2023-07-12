@@ -1,5 +1,6 @@
 package com.helo.juliustracker
 
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.media.MediaCodec.MetricsConstants.MODE
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,12 +47,19 @@ class FormFragment : Fragment() {
         rv_remedio.adapter= adapterDetails
 
 
+        val qtapapa = view.findViewById<TextInputLayout>(R.id.qtdpapa)
+        val teste = view.findViewById<Button>(R.id.teste)
+        val sharedPref = Prefs(requireContext())
+        sharedPref.name= "Heloisa"
 
 
 
-        val save_button = view.findViewById<Button>(R.id.save_button).setOnClickListener{
+        val save_button = view.findViewById<Button>(R.id.save_button)
+           save_button.setOnClickListener{
+               Toast.makeText(requireContext(),"Clicou no salvar",Toast.LENGTH_LONG).show()
 
         }
+
 
 //        view.findViewById<FloatingActionButton>(R.id.mais).setOnClickListener {
 //            findNavController().navigate(R.id.list_to_detail)
