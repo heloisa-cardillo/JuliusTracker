@@ -7,36 +7,53 @@
     android:orientation="vertical"
     tools:context=".FormFragment">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarD"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="XX/XX/XX"
-        app:titleMarginStart="160dp"
-        app:titleTextColor="@color/cardin_green" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <ImageView
-        android:id="@+id/trash"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/trash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/toolbarD" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/plus2"
-        app:layout_constraintEnd_toStartOf="@id/trash"
-        app:layout_constraintTop_toTopOf="@id/toolbarD" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="XX/XX/XX"
+                app:titleMarginStart="140dp"
+                app:titleTextColor="@color/cardin_green"
+                android:background="@drawable/bg_remedio"
+                />
+            <ImageView
+                android:id="@+id/trash"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/trash"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/toolbarD" />
+
+            <ImageView
+                android:id="@+id/lupa"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/plus2"
+                app:layout_constraintEnd_toStartOf="@id/trash"
+                app:layout_constraintTop_toTopOf="@id/toolbarD" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <Button
         android:id="@+id/save_button"
@@ -72,7 +89,8 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarD">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
