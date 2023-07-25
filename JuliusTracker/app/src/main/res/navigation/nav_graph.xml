@@ -15,7 +15,16 @@
 
     <fragment
         android:id="@+id/detail"
-        android:name="com.helo.juliustracker.FormFragment" />
+        android:name="com.helo.juliustracker.FormFragment">
+        <action
+            android:id="@+id/detail_to_medicine"
+            app:destination="@+id/medicine"/>
+    </fragment>
+  <dialog
+      android:id="@+id/medicine"
+      android:name="com.helo.juliustracker.MedicineFragment"
+      />
+
 
 
 </navigation>

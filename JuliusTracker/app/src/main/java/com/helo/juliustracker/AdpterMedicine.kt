@@ -35,13 +35,36 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>): RecyclerVie
 
     }
 
-     class FormularioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val peso = itemView.findViewById<TextView>(R.id.peso)
+
+       class FormularioViewHolder(
+           private val cardViewBinding: View
+       ): RecyclerView.ViewHolder(cardViewBinding)
+       { val peso = itemView.findViewById<TextView>(R.id.peso)
         val cantou = itemView.findViewById<TextView>(R.id.cantar)
-        val data = itemView.findViewById<TextView>(R.id.data)
+        val data = itemView.findViewById<TextView>(R.id.data)}
 
 
-    }
+
+//           fun bindx (formulario: Formulario)
+//           { val peso = itemView.findViewById<TextView>(R.id.peso)
+////        val cantou = itemView.findViewById<TextView>(R.id.cantar)
+////        val data = itemView.findViewById<TextView>(R.id.data)
+//
+//
+//
+////               cardViewBinding.peso.text = formulario.peso.toString()
+////               cardViewBinding.cantar.text = formulario.cantou.toString()
+////               cardViewBinding.data.text = formulario.data.toString()
+//           }
+//     class FormularioViewHolder(
+//         itemView: View
+//     ) : RecyclerView.ViewHolder(itemView) {
+//        val peso = itemView.findViewById<TextView>(R.id.peso)
+//        val cantou = itemView.findViewById<TextView>(R.id.cantar)
+//        val data = itemView.findViewById<TextView>(R.id.data)
+//
+//
+//    }
 }
 
 

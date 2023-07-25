@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 import com.helo.juliustracker.databinding.FragmentFormBinding
@@ -61,13 +62,12 @@ class FormFragment : Fragment() {
 
 
         val qtapapa = view.findViewById<TextInputLayout>(R.id.qtdpapa)
-        val teste = view.findViewById<Button>(R.id.teste)
         val sharedPref = Prefs(requireContext())
         sharedPref.name= "Heloisa"
 
         val lupa_icon = view.findViewById<ImageView>(R.id.lupa)
         lupa_icon.setOnClickListener{
-            Toast.makeText(requireContext(),"Clicou no buscar",Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.detail_to_medicine)
         }
 
         val lixo_icon = view.findViewById<ImageView>(R.id.trash)
@@ -76,12 +76,13 @@ class FormFragment : Fragment() {
         }
 
 
-
-        val save_button = view.findViewById<Button>(R.id.save_button)
-           save_button.setOnClickListener{
-               Toast.makeText(requireContext(),"Clicou no salvar",Toast.LENGTH_SHORT).show()
-
+        view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener{
+            findNavController().popBackStack()
         }
+        //findNavController().popBackStack() - FILO
+
+
+
 
 
 

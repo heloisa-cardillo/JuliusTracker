@@ -1,5 +1,6 @@
 package com.helo.juliustracker
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.helo.juliustracker.databinding.ActivityMainBinding
 
-class ListDataFragment : Fragment() {
+class ListDataFragment : Fragment(), Click_lista {
+
+//    private lateinit var binding: ActivityMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,6 +23,7 @@ class ListDataFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_list_data,container,false)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,6 +44,11 @@ class ListDataFragment : Fragment() {
         view.findViewById<FloatingActionButton>(R.id.mais).setOnClickListener {
             findNavController().navigate(R.id.list_to_detail)
         }
+    }
+
+    override fun onClick(formulario: Formulario) {
+        val intent = Intent(requireContext(), ListDataFragment::class.java)
+        startActivity(intent)
     }
 }
 
