@@ -1,0 +1,64 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    app:contentPadding="8dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="12dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:textColor="@color/cabbage_pont"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x gramas"
+            android:textColor="@color/cardin_green"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cantar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ele cantou!"
+            android:textColor="@color/cabbage_pont"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/linha"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray_suit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cantar" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:text="Compartilhar"
+            android:textColor="@color/light_green"
+            android:layout_gravity="end"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

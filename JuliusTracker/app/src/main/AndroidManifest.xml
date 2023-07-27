@@ -11,12 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JuliusTracker"
         tools:targetApi="31">
-        <activity
-            android:name=".CardView_Lista"
-            android:exported="false" />
-        <activity
-            android:name=".card_view_lista"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".CardView_Lista"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".card_view_lista"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".MainActivity"
             android:exported="true">

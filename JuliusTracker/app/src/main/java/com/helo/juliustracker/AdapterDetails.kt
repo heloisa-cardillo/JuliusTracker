@@ -10,7 +10,7 @@ class AdapterDetails(private val itemsdetails: List<Medicine>): RecyclerView.Ada
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailsViewHolder {
         //criar as visualizacoes em tela - criar os itens de lista
-        val viewDetails = LayoutInflater.from(parent.context).inflate(R.layout.item_data_remedio, parent, false)
+        val viewDetails = LayoutInflater.from(parent.context).inflate(R.layout.fragment_form_item, parent, false)
         val holder2 = DetailsViewHolder(viewDetails)
         return holder2
     }

@@ -1,7 +1,6 @@
 package com.helo.juliustracker
 
-interface Click_lista
-{
+interface Click_lista{
     fun onClick(formulario: Formulario)
 
 }

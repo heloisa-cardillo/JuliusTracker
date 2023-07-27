@@ -9,7 +9,12 @@
         android:name="com.helo.juliustracker.ListDataFragment">
         <action
             android:id="@+id/list_to_detail"
-            app:destination="@+id/detail"/>
+            app:destination="@+id/detail">
+<!--            <argument-->
+<!--                android:name="data"-->
+<!--                app:argType="com.helo.juliustracker.Formulario"-->
+<!--                android:defaultValue="@null" />-->
+        </action>
 
     </fragment>
 

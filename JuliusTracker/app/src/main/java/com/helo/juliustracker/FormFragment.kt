@@ -48,12 +48,14 @@ class FormFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val formulario: Formulario? = arguments?.getParcelable("data")
+
 
         val rv_remedio = view.findViewById<RecyclerView>(R.id.rv_remedio)
         rv_remedio.layoutManager = LinearLayoutManager(requireContext())
         rv_remedio.setHasFixedSize(true)
        val peso2 =  view.findViewById<TextInputLayout>(R.id.peso2)
-        peso2.editText?.text.toString()
+        peso2.editText?.setText(formulario?.peso.toString()?:"meu ovo")
 
 
         val adapterDetails = AdapterDetails(listaMedice)
@@ -77,7 +79,13 @@ class FormFragment : Fragment() {
 
 
         view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener{
-            findNavController().popBackStack()
+            val formulario = Formulario(
+                data = "",
+                peso = 0.0,
+                cantou = false,
+                comeuracao = false,
+                remedios = emptyList()
+            )
         }
         //findNavController().popBackStack() - FILO
 

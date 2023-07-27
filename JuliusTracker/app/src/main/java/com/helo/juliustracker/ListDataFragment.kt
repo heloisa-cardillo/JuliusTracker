@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.helo.juliustracker.databinding.ActivityMainBinding
+
 
 class ListDataFragment : Fragment(), Click_lista {
 
@@ -24,6 +25,7 @@ class ListDataFragment : Fragment(), Click_lista {
     ): View? {
         return inflater.inflate(R.layout.fragment_list_data,container,false)
 //        binding = ActivityMainBinding.inflate(layoutInflater)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,19 +39,30 @@ class ListDataFragment : Fragment(), Click_lista {
         //otimizar/otimizar nossa lista
         //Configurar o Adapater
 
-        val adapterMedicine = AdpterMedicine(listaFormulario)
+        val clickLista : Click_lista = this
+        val adapterMedicine = AdpterMedicine(listaFormulario,this)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         recycler_view_teste.adapter= adapterMedicine
 
-        view.findViewById<FloatingActionButton>(R.id.mais).setOnClickListener {
+        view.findViewById<FloatingActionButton>(R.id.plus_button).setOnClickListener {
             findNavController().navigate(R.id.list_to_detail)
         }
+
+//        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
+//            findNavController().
+//        }
     }
 
     override fun onClick(formulario: Formulario) {
-        val intent = Intent(requireContext(), ListDataFragment::class.java)
-        startActivity(intent)
+        findNavController().navigate(R.id.list_to_detail, bundleOf("data" to formulario))
     }
+
+//     fun compartilhar(formulario: Formulario) {
+//        val intent = Intent(requireContext(), ListDataFragment::class.java)
+//        startActivity(intent)
+//    }
+//
+
 }
 
 //childFragmentManager.beginTransaction().add(

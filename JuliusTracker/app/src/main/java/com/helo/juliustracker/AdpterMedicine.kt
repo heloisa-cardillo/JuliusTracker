@@ -7,12 +7,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class AdpterMedicine(private val itemsformulario: List<Formulario>): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
+class AdpterMedicine(private val itemsformulario: List<Formulario>, private val clickLista: Click_lista): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FormularioViewHolder {
         //criar as visualizacoes em tela - criar os itens de lista
         val viewFormulario =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_data_formulario, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.fragment_list_data_item, parent, false)
         // no from passa o contexto da classe, parametros - class AdapterMedicice (xxx)
         val holder = FormularioViewHolder(viewFormulario)
         return holder
@@ -25,6 +25,10 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>): RecyclerVie
         //exibir as visualizacoes para o usuario
         holder.peso.text = itemsformulario[position].peso.toString()
         holder.data.text= itemsformulario[position].data.toString()
+
+        holder.itemView.setOnClickListener {
+            clickLista.onClick(itemsformulario[position])
+        }
 
 
         //holder.cantou.text = itemsformulario[position].cantou.toString()
