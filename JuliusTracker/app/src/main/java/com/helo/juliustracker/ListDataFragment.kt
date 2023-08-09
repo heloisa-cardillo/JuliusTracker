@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
+import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -23,7 +24,7 @@ class ListDataFragment : Fragment(), Click_lista {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_list_data,container,false)
+        return inflater.inflate(R.layout.fragment_list_data, container, false)
 //        binding = ActivityMainBinding.inflate(layoutInflater)
 
     }
@@ -39,10 +40,10 @@ class ListDataFragment : Fragment(), Click_lista {
         //otimizar/otimizar nossa lista
         //Configurar o Adapater
 
-        val clickLista : Click_lista = this
-        val adapterMedicine = AdpterMedicine(listaFormulario,this)
+        val clickLista: Click_lista = this
+        val adapterMedicine = AdpterMedicine(listaFormulario, this)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
-        recycler_view_teste.adapter= adapterMedicine
+        recycler_view_teste.adapter = adapterMedicine
 
         view.findViewById<FloatingActionButton>(R.id.plus_button).setOnClickListener {
             findNavController().navigate(R.id.list_to_detail)
@@ -51,11 +52,24 @@ class ListDataFragment : Fragment(), Click_lista {
 //        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
 //            findNavController().
 //        }
+
+        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
+            val s = view.findViewById<RecyclerView>(R.id.recycler_view_teste)
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.type = "text"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "$s")
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject")
+            startActivity(Intent.createChooser(shareIntent,"Share"))
+
+        }
     }
+
 
     override fun onClick(formulario: Formulario) {
         findNavController().navigate(R.id.list_to_detail, bundleOf("data" to formulario))
     }
+
 
 //     fun compartilhar(formulario: Formulario) {
 //        val intent = Intent(requireContext(), ListDataFragment::class.java)

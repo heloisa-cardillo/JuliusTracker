@@ -22,15 +22,15 @@ class AdapterDetails(private val itemsdetails: List<Medicine>) : RecyclerView.Ad
     override fun onBindViewHolder(holder2: DetailsViewHolder, position: Int) {
         //exibir as visualizacoes para o usuario
 
-        val remedio = itemsdetails[position]
-        holder2.nomeremedio.text = remedio.toString()
+//        val remedio = itemsdetails[position]
+//        holder2.nomeremedio.text = remedio.toString()
+//
+//        val vezes = itemsdetails[position]
+//        holder2.vezesaodia.text = vezes.toString()
 
-        val vezes = itemsdetails[position]
-        holder2.vezesaodia.text = vezes.toString()
 
-
-//        holder2.nomeremedio.text = itemsdetails[position].nomeremedio.toString()
-//        holder2.vezesaodia.text = itemsdetails[position].vezesaodia.toString()
+        holder2.nomeremedio.text = itemsdetails[position].nomeremedio.toString()
+        holder2.vezesaodia.text = itemsdetails[position].vezesaodia.toString()
     }
 
     class DetailsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

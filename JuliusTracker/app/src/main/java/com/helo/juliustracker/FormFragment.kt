@@ -59,14 +59,14 @@ class FormFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_form,container,false)
+        return inflater.inflate(R.layout.fragment_form, container, false)
 
-        binding.trash.setOnClickListener{
-            Toast.makeText(requireContext(),"Clicou no buscar",Toast.LENGTH_LONG).show()
+        binding.trash.setOnClickListener {
+            Toast.makeText(requireContext(), "Clicou no buscar", Toast.LENGTH_LONG).show()
         }
 
-        binding.lupa.setOnClickListener{
-            Toast.makeText(requireContext(),"Clicou no salvar",Toast.LENGTH_LONG).show()
+        binding.lupa.setOnClickListener {
+            Toast.makeText(requireContext(), "Clicou no salvar", Toast.LENGTH_LONG).show()
         }
 
         binding = FragmentFormBinding.inflate(layoutInflater)
@@ -83,15 +83,11 @@ class FormFragment : Fragment() {
         val rv_remedio = view.findViewById<RecyclerView>(R.id.rv_remedio)
         rv_remedio.layoutManager = LinearLayoutManager(requireContext())
         rv_remedio.setHasFixedSize(true)
-       val peso2 =  view.findViewById<TextInputLayout>(R.id.peso2)
-        peso2.editText?.setText(formulario?.peso.toString()?:"meu ovo")
+        val peso2 = view.findViewById<TextInputLayout>(R.id.peso2)
+        peso2.editText?.setText(formulario?.peso.toString() ?: "meu ovo")
         val adapterDetails = AdapterDetails(listaMedice)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
-        rv_remedio.adapter= adapterDetails
-
-
-
-
+        rv_remedio.adapter = adapterDetails
 
 
 //        val qtapapa = view.findViewById<TextInputLayout>(R.id.qtdpapa)
@@ -99,18 +95,21 @@ class FormFragment : Fragment() {
 //        sharedPref.name= "Heloisa"
 
         val lupa_icon = view.findViewById<ImageView>(R.id.lupa)
-        lupa_icon.setOnClickListener{
+        lupa_icon.setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
         }
 
         val lixo_icon = view.findViewById<ImageView>(R.id.trash)
-        lixo_icon.setOnClickListener{
-            Toast.makeText(requireContext(),"Clicou no deletar",Toast.LENGTH_SHORT).show()
+        lixo_icon.setOnClickListener {
+            Toast.makeText(requireContext(), "Clicou no deletar", Toast.LENGTH_SHORT).show()
         }
 
 
-        view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener{
+        view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
+
+
+
 //            val formulario = Formulario(
 //                data = "",
 //                peso = 0.0,
@@ -120,11 +119,6 @@ class FormFragment : Fragment() {
 //            )
         }
         //findNavController().popBackStack() - FILO
-
-
-
-
-
 
 
 //        view.findViewById<FloatingActionButton>(R.id.save_button).setOnClickListener {

@@ -13,9 +13,10 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>, private val 
         //criar as visualizacoes em tela - criar os itens de lista
         val viewFormulario =
             LayoutInflater.from(parent.context).inflate(R.layout.fragment_list_data_item, parent, false)
+        return FormularioViewHolder(viewFormulario)
         // no from passa o contexto da classe, parametros - class AdapterMedicice (xxx)
-        val holder = FormularioViewHolder(viewFormulario)
-        return holder
+//        val holder = FormularioViewHolder(viewFormulario)
+//        return holder
     }
 
     override fun getItemCount(): Int = itemsformulario.size
