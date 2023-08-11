@@ -104,9 +104,20 @@ class FormFragment : Fragment() {
             Toast.makeText(requireContext(), "Clicou no deletar", Toast.LENGTH_SHORT).show()
         }
 
+        val return_icon = view.findViewById<ImageView>(R.id.return_icon)
+        return_icon.setOnClickListener {
+            findNavController().navigate(R.id.detail_to_list)
+        }
+
 
         view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
+
+
+        }
+    }
+}
+
 
 
 
@@ -117,7 +128,7 @@ class FormFragment : Fragment() {
 //                comeuracao = false,
 //                remedios = emptyList()
 //            )
-        }
+
         //findNavController().popBackStack() - FILO
 
 
@@ -130,5 +141,5 @@ class FormFragment : Fragment() {
 //            // Do something in response to button click
 //        }
 
-    }
-}
+
+

@@ -53,16 +53,29 @@ class ListDataFragment : Fragment(), Click_lista {
 //            findNavController().
 //        }
 
-        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
-            val s = view.findViewById<RecyclerView>(R.id.recycler_view_teste)
-            val shareIntent = Intent()
-            shareIntent.action = Intent.ACTION_SEND
-            shareIntent.type = "text"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "$s")
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject")
-            startActivity(Intent.createChooser(shareIntent,"Share"))
+//        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
+//            val s = view.findViewById<RecyclerView>(R.id.testetexto)
+//            val shareIntent = Intent()
+//            shareIntent.action = Intent.ACTION_SEND
+//            shareIntent.type = "text/plain"
+//            shareIntent.putExtra(Intent.EXTRA_TEXT, "$s")
+//            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject")
+//            startActivity(Intent.createChooser(shareIntent,"Share"))
+//
+//        }
 
+        val sendIntent: Intent = Intent().apply {
+            val s = view.findViewById<RecyclerView>(R.id.recycler_view_teste)
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "$s")
+            type = "text/*"
         }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+
+
+
     }
 
 

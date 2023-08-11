@@ -24,13 +24,14 @@
         <action
             android:id="@+id/detail_to_medicine"
             app:destination="@+id/medicine"/>
+        <action
+            android:id="@+id/detail_to_list"
+            app:destination="@+id/list"/>
     </fragment>
   <dialog
       android:id="@+id/medicine"
       android:name="com.helo.juliustracker.MedicineFragment"
       />
-
-
 
 </navigation>
 
