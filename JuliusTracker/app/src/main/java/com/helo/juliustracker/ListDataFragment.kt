@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.w3c.dom.DOMStringList
 
 
 class ListDataFragment : Fragment(), Click_lista {
@@ -63,16 +65,26 @@ class ListDataFragment : Fragment(), Click_lista {
 //            startActivity(Intent.createChooser(shareIntent,"Share"))
 //
 //        }
+        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
 
-        val sendIntent: Intent = Intent().apply {
-            val s = view.findViewById<RecyclerView>(R.id.recycler_view_teste)
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "$s")
-            type = "text/*"
+//            val dados: MutableList<TextView> = mutableListOf(
+//                view.findViewById(R.id.peso),
+//             view.findViewById(R.id.cantar),
+//           view.findViewById(R.id.data)
+//            )
+            val sendIntent: Intent = Intent().apply {
+                val dados: MutableList<Medicine> = mutableListOf(
+                    view.findViewById(R.id.),
+                    view.findViewById(R.id.cantar),
+                    view.findViewById(R.id.data)
+                )
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "$dados")
+                type = "*/*"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
         }
-
-        val shareIntent = Intent.createChooser(sendIntent, null)
-        startActivity(shareIntent)
 
 
 
