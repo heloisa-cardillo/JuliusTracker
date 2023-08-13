@@ -55,7 +55,10 @@ public data class Medicine(
         parcel.readString().orEmpty(),
         parcel.readString().orEmpty(),
         parcel.readString().orEmpty()
-    ) {
+    )
+
+
+    {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

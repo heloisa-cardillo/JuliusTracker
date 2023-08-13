@@ -1,6 +1,7 @@
 package com.helo.juliustracker
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.core.view.size
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.ListFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +22,13 @@ import org.w3c.dom.DOMStringList
 class ListDataFragment : Fragment(), Click_lista {
 
 //    private lateinit var binding: ActivityMainBinding
+    companion object{
+        const val PESO_parameter = "p"
+    const val RACA0_parameter = "r"
+    const val DATA_parameter = "r"
+
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,24 +74,40 @@ class ListDataFragment : Fragment(), Click_lista {
 //            startActivity(Intent.createChooser(shareIntent,"Share"))
 //
 //        }
-        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
+
 
 //            val dados: MutableList<TextView> = mutableListOf(
 //                view.findViewById(R.id.peso),
 //             view.findViewById(R.id.cantar),
 //           view.findViewById(R.id.data)
-//            )
+
+//            val dados: MutableList<Medicine> = mutableListOf(
+//                val nomeremedio
+//
+////
+//            view.findViewById(R.id.nome_remedio).Uri.parse(),
+//            view.findViewById(R.id.cantar).Uri.parse(),
+//            view.findViewById(R.id.data).Uri.parse())
+
+        val comeu_racao_formulario = view.findViewById<TextView>(R.id.comeuracao)
+            val peso_formulario = view.findViewById<TextView>(R.id.peso).text
+            val data_formulario = view.findViewById<TextView>(R.id.data)
+
+        view.findViewById<FloatingActionButton>(R.id.share_button).setOnClickListener {
+//            val peso_uri = Uri.parse(PESO_parameter).buildUpon()
+//            val peso_uri = BASE_uri.appendQueryParameter(PESO_parameter,"PESO")
+
+
+
+
+//
             val sendIntent: Intent = Intent().apply {
-                val dados: MutableList<Medicine> = mutableListOf(
-                    view.findViewById(R.id.),
-                    view.findViewById(R.id.cantar),
-                    view.findViewById(R.id.data)
-                )
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "$dados")
-                type = "*/*"
+                putExtra(Intent.EXTRA_TEXT, "$peso_formulario")
+//                    ,"$peso_formulario","$data_formulario")
+                type = "text/*"
             }
-            val shareIntent = Intent.createChooser(sendIntent, null)
+            val shareIntent = Intent.createChooser(sendIntent, "$peso_formulario")
             startActivity(shareIntent)
         }
 
