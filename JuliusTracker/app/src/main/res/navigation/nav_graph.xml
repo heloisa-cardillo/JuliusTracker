@@ -10,10 +10,10 @@
         <action
             android:id="@+id/list_to_detail"
             app:destination="@+id/detail">
-<!--            <argument-->
-<!--                android:name="data"-->
-<!--                app:argType="com.helo.juliustracker.Formulario"-->
-<!--                android:defaultValue="@null" />-->
+            <argument
+                android:name="data"
+                app:argType="com.helo.juliustracker.Formulario"
+                android:defaultValue="@null" />
         </action>
 
     </fragment>
@@ -24,9 +24,6 @@
         <action
             android:id="@+id/detail_to_medicine"
             app:destination="@+id/medicine"/>
-        <action
-            android:id="@+id/detail_to_list"
-            app:destination="@+id/list"/>
     </fragment>
   <dialog
       android:id="@+id/medicine"
@@ -35,5 +32,3 @@
 
 </navigation>
 
-<!--//casinha = primeira tela que vou ver
-https://developer.android.com/guide/navigation/navigation-getting-started-->

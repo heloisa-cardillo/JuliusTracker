@@ -20,6 +20,14 @@ public data class Formulario(
     ){
     }
 
+    fun buildForShare(): String {
+        return "data ${data} \npeso: ${peso} \ncantou: ${cantou} \ncomeu: ${comeuracao} \nremedio: ${remedios.toString()}"
+    }
+
+    override fun toString(): String {
+        return buildForShare()
+    }
+
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(data)
         parcel.writeDouble(peso)
@@ -47,25 +55,30 @@ public data class Formulario(
 public data class Medicine(
     var nomeremedio: String,
     var vezesaodia: String,
-    var data: String,
-    var quantidadepapa: String
+//    var data: String,
+    var quantidaderemedio: String = ""
     ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString().orEmpty(),
         parcel.readString().orEmpty(),
-        parcel.readString().orEmpty(),
+//        parcel.readString().orEmpty(),
         parcel.readString().orEmpty()
     )
 
-
-    {
+    fun buildForShareRemedios():String{
+        return "\n *${nomeremedio} \nvezes ao dia: ${vezesaodia} \n ml: ${quantidaderemedio}\n"
     }
+
+    override fun toString(): String {
+        return buildForShareRemedios()
+    }
+
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nomeremedio)
         parcel.writeString(vezesaodia)
-        parcel.writeString(data)
-        parcel.writeString(quantidadepapa)
+//        parcel.writeString(data)
+        parcel.writeString(quantidaderemedio)
     }
 
     override fun describeContents(): Int {
@@ -87,26 +100,26 @@ val listaMedice = listOf(
     Medicine(
         nomeremedio = "Gardenal",
         vezesaodia = "3 vezes",
-        data = "22/03",
-        quantidadepapa = "1ml"
+//        data = "22/03",
+        quantidaderemedio = "1ml"
     ),
     Medicine(
         nomeremedio = "Rivotril",
         vezesaodia = "2 vezes",
-        data = "22/03",
-        quantidadepapa = "1ml"
+//        data = "22/03",
+        quantidaderemedio = "1ml"
     ),
     Medicine(
         nomeremedio = "Leviracetam",
         vezesaodia = "3 vezes",
-        data = "22/03",
-        quantidadepapa = "1ml"
+//        data = "22/03",
+        quantidaderemedio= "1ml"
     ),
     Medicine(
         nomeremedio = "Valproato",
         vezesaodia = "3 vezes",
-        data = "22/03",
-        quantidadepapa = "1ml"
+//        data = "22/03",
+        quantidaderemedio = "1ml"
     )
 
 )
@@ -116,20 +129,20 @@ val listaFormulario = mutableListOf(
         peso = 40.0,
         cantou = false,
         comeuracao = true,
-        remedios = emptyList()
+        remedios = listaMedice
     ) ,
     Formulario(
         data = "23/03",
         peso = 42.0,
         cantou = true,
         comeuracao = true,
-        remedios = emptyList()
+        remedios = listaMedice
     ),
     Formulario(
         data = "24/03",
         peso = 44.0,
         cantou = true,
         comeuracao = true,
-        remedios = emptyList()
+        remedios = listaMedice
     )
 )

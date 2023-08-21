@@ -31,28 +31,6 @@ import com.helo.juliustracker.databinding.FragmentFormBinding
 
 class FormFragment : Fragment() {
     private lateinit var binding: FragmentFormBinding
-//
-//    private lateinit var binding: FragmentFormBinding
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = FragmentFormBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        initRecyclerView1()
-//    }
-//
-//    private fun initRecyclerView1(){
-//        binding.rvRemedio.layoutManager = LinearLayoutManager(this)
-//        binding.rvRemedio.setHasFixedSize(true)
-//        binding.rvRemedio.adapter = AdapterDetails(getList())
-//    }
-//
-//    private fun getList() = listOf(
-//        "Gardenal",
-//        "Rivotril",
-//        "Brometo"
-//    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -89,11 +67,6 @@ class FormFragment : Fragment() {
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         rv_remedio.adapter = adapterDetails
 
-
-//        val qtapapa = view.findViewById<TextInputLayout>(R.id.qtdpapa)
-//        val sharedPref = Prefs(requireContext())
-//        sharedPref.name= "Heloisa"
-
         val lupa_icon = view.findViewById<ImageView>(R.id.lupa)
         lupa_icon.setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
@@ -106,7 +79,7 @@ class FormFragment : Fragment() {
 
         val return_icon = view.findViewById<ImageView>(R.id.return_icon)
         return_icon.setOnClickListener {
-            findNavController().navigate(R.id.detail_to_list)
+            findNavController().navigateUp()
         }
 
 
@@ -118,28 +91,8 @@ class FormFragment : Fragment() {
     }
 }
 
-
-
-
-//            val formulario = Formulario(
-//                data = "",
-//                peso = 0.0,
-//                cantou = false,
-//                comeuracao = false,
-//                remedios = emptyList()
-//            )
-
         //findNavController().popBackStack() - FILO
 
-
-//        view.findViewById<FloatingActionButton>(R.id.save_button).setOnClickListener {
-//            findNavController().navigate(R.id.list_to_detail)
-//        }
-
-//        val button: Button = findViewById(R.id.button_send)
-//        button.setOnClickListener {
-//            // Do something in response to button click
-//        }
 
 
 

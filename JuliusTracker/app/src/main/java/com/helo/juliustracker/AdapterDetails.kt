@@ -12,8 +12,6 @@ class AdapterDetails(private val itemsdetails: List<Medicine>) : RecyclerView.Ad
         //criar as visualizacoes em tela - criar os itens de lista
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_form_item, parent, false)
         return DetailsViewHolder(itemView)
-//        val holder2 = DetailsViewHolder(viewDetails)
-//        return holder2
     }
 
     override fun getItemCount(): Int = itemsdetails.size
@@ -21,12 +19,6 @@ class AdapterDetails(private val itemsdetails: List<Medicine>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder2: DetailsViewHolder, position: Int) {
         //exibir as visualizacoes para o usuario
-
-//        val remedio = itemsdetails[position]
-//        holder2.nomeremedio.text = remedio.toString()
-//
-//        val vezes = itemsdetails[position]
-//        holder2.vezesaodia.text = vezes.toString()
 
 
         holder2.nomeremedio.text = itemsdetails[position].nomeremedio.toString()

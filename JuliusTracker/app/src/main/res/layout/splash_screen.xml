@@ -12,5 +12,11 @@
         android:src="@drawable/ic_ic_julius"
         android:id="@+id/ic_julius"
         android:background="@drawable/bg_remedio"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JULIUS TRAKER \n 2023"
+        android:gravity="center"
+        android:layout_marginStart="40dp"/>
 
 </RelativeLayout>
