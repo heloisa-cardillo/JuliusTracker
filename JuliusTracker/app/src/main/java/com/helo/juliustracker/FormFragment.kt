@@ -62,7 +62,7 @@ class FormFragment : Fragment() {
         rv_remedio.layoutManager = LinearLayoutManager(requireContext())
         rv_remedio.setHasFixedSize(true)
         val peso2 = view.findViewById<TextInputLayout>(R.id.peso2)
-        peso2.editText?.setText(formulario?.peso.toString() ?: "meu ovo")
+        peso2.editText?.setText(formulario?.peso.toString())
         val adapterDetails = AdapterDetails(listaMedice)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         rv_remedio.adapter = adapterDetails
@@ -88,6 +88,11 @@ class FormFragment : Fragment() {
 
 
         }
+
+//        val listaOriginal = listaMedice
+//        val listaFiltrada = listaOriginal.filter {it.nomeremedio.lowercase().contains("gardenal")}
+//        print(listaFiltrada)
+
     }
 }
 

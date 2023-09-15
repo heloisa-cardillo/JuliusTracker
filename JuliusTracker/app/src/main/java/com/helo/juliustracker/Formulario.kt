@@ -9,14 +9,14 @@ public data class Formulario(
     var peso: Double,
     var cantou: Boolean,
     var comeuracao: Boolean,
-    var remedios: List<Medicine>
+    var remedios: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString().orEmpty(),
         parcel.readDouble(),
         parcel.readByte() != 0.toByte(),
         parcel.readByte() != 0.toByte(),
-        parcel.createTypedArrayList(Medicine) ?: emptyList()
+        (parcel.createTypedArrayList(Medicine) ?: emptyList()) as String
     ){
     }
 
@@ -52,11 +52,15 @@ public data class Formulario(
 
 }
 
+private fun Parcel.writeTypedList(remedios: String) {
+
+}
+
 public data class Medicine(
     var nomeremedio: String,
     var vezesaodia: String,
 //    var data: String,
-    var quantidaderemedio: String = ""
+    var quantidaderemedio: String
     ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString().orEmpty(),
@@ -66,7 +70,7 @@ public data class Medicine(
     )
 
     fun buildForShareRemedios():String{
-        return "\n *${nomeremedio} \nvezes ao dia: ${vezesaodia} \n ml: ${quantidaderemedio}\n"
+        return "\n *${nomeremedio} \nvezes ao dia: ${vezesaodia} \n ml: ${quantidaderemedio}"
     }
 
     override fun toString(): String {
@@ -129,20 +133,20 @@ val listaFormulario = mutableListOf(
         peso = 40.0,
         cantou = false,
         comeuracao = true,
-        remedios = listaMedice
+        remedios = listaMedice.map { it.buildForShareRemedios() }.joinToString(separator = "")
     ) ,
     Formulario(
         data = "23/03",
         peso = 42.0,
         cantou = true,
         comeuracao = true,
-        remedios = listaMedice
+        remedios = listaMedice.map { it.buildForShareRemedios() }.joinToString(separator = "")
     ),
     Formulario(
         data = "24/03",
         peso = 44.0,
         cantou = true,
         comeuracao = true,
-        remedios = listaMedice
+        remedios = listaMedice.map { it.buildForShareRemedios() }.joinToString(separator = "")
     )
 )

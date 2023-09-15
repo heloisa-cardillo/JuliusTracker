@@ -66,18 +66,20 @@ class ListDataFragment : Fragment(), Click_lista {
 
             val formatacao1 = listaFormulario.toString()
             val formatacao2 = listaFormulario.map { it.buildForShare() }.joinToString(separator = "\n\n")
-            val formatacao3 = listaMedice.map { it.buildForShareRemedios() }.joinToString(separator = "\n\n")
-            val formatacao4= formatacao2 + formatacao3
+//            val formatacao3 = listaMedice.map { it.buildForShareRemedios() }.joinToString(separator = "\n\n")
+//            val formatacao4= formatacao2 + formatacao3
 //map = converter/mapear
 
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, formatacao4)
-                type = "text/*"
+                putExtra(Intent.EXTRA_TEXT, formatacao2)
+                type = "*/*"
             }
             val shareIntent = Intent.createChooser(sendIntent, "$peso_formulario")
             startActivity(shareIntent)
         }
+
+
 
     }
 

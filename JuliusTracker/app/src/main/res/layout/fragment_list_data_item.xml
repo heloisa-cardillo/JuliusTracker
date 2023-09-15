@@ -27,6 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/peso"
             android:layout_width="wrap_content"
@@ -42,6 +43,14 @@
             android:text="Ele cantou!"
             android:textColor="@color/cabbage_pont"
             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/remedios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista Remedios"
+            android:textColor="@color/cabbage_pont"
+            android:textSize="12sp" />
 
         <View
             android:id="@+id/linha"

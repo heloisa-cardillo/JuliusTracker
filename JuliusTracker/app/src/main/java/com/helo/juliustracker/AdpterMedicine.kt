@@ -27,6 +27,7 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>, private val 
         //exibir as visualizacoes para o usuario
         holder.peso.text = itemsformulario[position].peso.toString()
         holder.data.text= itemsformulario[position].data.toString()
+        holder.remedios.text = itemsformulario [position].remedios.toString()
 
 
         holder.itemView.setOnClickListener {
@@ -60,7 +61,9 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>, private val 
        { val peso = itemView.findViewById<TextView>(R.id.peso)
         val cantou = itemView.findViewById<TextView>(R.id.cantar)
         val data = itemView.findViewById<TextView>(R.id.data)
-       val botaoLDF = itemView.findViewById<Button>(R.id.share_FLD)}
+       val botaoLDF = itemView.findViewById<Button>(R.id.share_FLD)
+           val remedios = itemView.findViewById<TextView>(R.id.remedios)
+       }
 }
 
 //ViewHolder: representacao no nosso Adapter do nosso layout no xml => holder do layout xml dentro do nosso Adapter
