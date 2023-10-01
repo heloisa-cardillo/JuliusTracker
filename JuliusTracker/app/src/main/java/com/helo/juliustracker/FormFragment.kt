@@ -1,5 +1,6 @@
 package com.helo.juliustracker
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
@@ -16,11 +17,15 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,8 +34,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 import com.helo.juliustracker.databinding.FragmentFormBinding
 
-class FormFragment : Fragment() {
-    private lateinit var binding: FragmentFormBinding
+class FormFragment : Fragment(), OnClickMedicineListener {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,20 +42,12 @@ class FormFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_form, container, false)
-
-        binding.trash.setOnClickListener {
-            Toast.makeText(requireContext(), "Clicou no buscar", Toast.LENGTH_LONG).show()
-        }
-
-        binding.lupa.setOnClickListener {
-            Toast.makeText(requireContext(), "Clicou no salvar", Toast.LENGTH_LONG).show()
-        }
-
-        binding = FragmentFormBinding.inflate(layoutInflater)
+        // nada funciona abaixo do returno
 
     }
 
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -63,7 +59,7 @@ class FormFragment : Fragment() {
         rv_remedio.setHasFixedSize(true)
         val peso2 = view.findViewById<TextInputLayout>(R.id.peso2)
         peso2.editText?.setText(formulario?.peso.toString())
-        val adapterDetails = AdapterDetails(listaMedice)
+        val adapterDetails = AdapterDetails(listaMedice, this)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         rv_remedio.adapter = adapterDetails
 
@@ -82,19 +78,25 @@ class FormFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-
         view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
+        }
 
+        setFragmentResultListener("mudou"){requestKey, bundle ->
+        adapterDetails.notifyDataSetChanged()
 
         }
 
-//        val listaOriginal = listaMedice
-//        val listaFiltrada = listaOriginal.filter {it.nomeremedio.lowercase().contains("gardenal")}
-//        print(listaFiltrada)
-
     }
+
+
+    override fun onClick(medicine: Medicine?) {
+        findNavController().navigate(R.id.medicine, args = bundleOf("medicine" to medicine))
+    }
+
 }
+
+
 
         //findNavController().popBackStack() - FILO
 

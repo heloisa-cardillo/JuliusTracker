@@ -2,7 +2,13 @@ package com.helo.juliustracker
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.ImageView
+import android.widget.Toast
 
+
+//fun addMedicine(nomeremedio: String,vezesaodia: String,quantidaderemedio: String){
+//  if (nomeremedio )
+//}
 
 public data class Formulario(
     var data: String,
@@ -57,6 +63,7 @@ private fun Parcel.writeTypedList(remedios: String) {
 }
 
 public data class Medicine(
+    var id: String,
     var nomeremedio: String,
     var vezesaodia: String,
 //    var data: String,
@@ -65,10 +72,10 @@ public data class Medicine(
     constructor(parcel: Parcel) : this(
         parcel.readString().orEmpty(),
         parcel.readString().orEmpty(),
+        parcel.readString().orEmpty(),
 //        parcel.readString().orEmpty(),
         parcel.readString().orEmpty()
     )
-
     fun buildForShareRemedios():String{
         return "\n *${nomeremedio} \nvezes ao dia: ${vezesaodia} \n ml: ${quantidaderemedio}"
     }
@@ -100,34 +107,53 @@ public data class Medicine(
     }
 }
 
-val listaMedice = listOf(
+public val listaMedice = mutableListOf(
     Medicine(
+        id = "a6de983b-8814-45aa-a707-bda204da4a5e",
         nomeremedio = "Gardenal",
         vezesaodia = "3 vezes",
-//        data = "22/03",
         quantidaderemedio = "1ml"
     ),
     Medicine(
+        id = "62972f6e-40dc-47a3-9044-9261c2f6d61a",
         nomeremedio = "Rivotril",
         vezesaodia = "2 vezes",
-//        data = "22/03",
         quantidaderemedio = "1ml"
     ),
     Medicine(
+        id = "d0bc29de-a9cd-4f85-ab04-6011640f6886",
         nomeremedio = "Leviracetam",
         vezesaodia = "3 vezes",
-//        data = "22/03",
         quantidaderemedio= "1ml"
     ),
     Medicine(
+        id ="ab193274-2d3a-412c-91f7-73a01a8ec3ad",
         nomeremedio = "Valproato",
         vezesaodia = "3 vezes",
-//        data = "22/03",
         quantidaderemedio = "1ml"
+    ),
+    Medicine(
+        id ="  val myUuid = UUID.randomUUID()\n" +
+                "val myUuidAsString = myUuid.toString()",
+        nomeremedio = "Brometo",
+        vezesaodia = "2 vezes",
+        quantidaderemedio = "0,01ml"
     )
 
 )
-val listaFormulario = mutableListOf(
+
+public fun addMedicine (id: String, nomeremedio: String,vezesaodia: String,quantidaderemedio: String) {
+    listaMedice.add(
+        Medicine(
+            id = id,
+            nomeremedio = nomeremedio,
+            vezesaodia = vezesaodia,
+            quantidaderemedio = quantidaderemedio
+        )
+    )
+}
+
+public val listaFormulario = mutableListOf(
     Formulario (
         data = "22/03",
         peso = 40.0,
@@ -150,3 +176,4 @@ val listaFormulario = mutableListOf(
         remedios = listaMedice.map { it.buildForShareRemedios() }.joinToString(separator = "")
     )
 )
+

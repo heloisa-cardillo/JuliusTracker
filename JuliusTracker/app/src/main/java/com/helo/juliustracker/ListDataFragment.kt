@@ -22,7 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.w3c.dom.DOMStringList
 
 
-class ListDataFragment : Fragment(), Click_lista {
+class ListDataFragment : Fragment(), OnClickFormularioListener {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +45,7 @@ class ListDataFragment : Fragment(), Click_lista {
         //otimizar/otimizar nossa lista
         //Configurar o Adapater
 
-        val clickLista: Click_lista = this
+        val clickLista: OnClickFormularioListener = this
         val adapterMedicine = AdpterMedicine(listaFormulario, this)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         recycler_view_teste.adapter = adapterMedicine

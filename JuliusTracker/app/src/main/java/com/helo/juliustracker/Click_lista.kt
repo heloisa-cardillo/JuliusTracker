@@ -1,7 +1,11 @@
 package com.helo.juliustracker
 
-interface Click_lista{
+interface OnClickFormularioListener{
     fun onClick(formulario: Formulario)
 
-
 }
+
+interface OnClickMedicineListener {
+    fun onClick(medicine: Medicine?)
+}
+

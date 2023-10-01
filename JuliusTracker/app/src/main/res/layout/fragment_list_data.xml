@@ -27,14 +27,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/toolbarJ" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/testetexto"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="teste"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        tools:ignore="MissingConstraints" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_teste"

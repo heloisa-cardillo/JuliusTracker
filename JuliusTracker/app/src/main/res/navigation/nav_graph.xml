@@ -23,7 +23,8 @@
         android:name="com.helo.juliustracker.FormFragment">
         <action
             android:id="@+id/detail_to_medicine"
-            app:destination="@+id/medicine"/>
+            app:destination="@+id/medicine">
+        </action>
     </fragment>
   <dialog
       android:id="@+id/medicine"

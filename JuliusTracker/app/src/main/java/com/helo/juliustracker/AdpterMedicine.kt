@@ -8,9 +8,12 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.SimpleDateFormat
 
 
-class AdpterMedicine(private val itemsformulario: List<Formulario>, private val clickLista: Click_lista): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
+class AdpterMedicine(private val itemsformulario: List<Formulario>, private val clickLista: OnClickFormularioListener): RecyclerView.Adapter<AdpterMedicine.FormularioViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FormularioViewHolder {
         //criar as visualizacoes em tela - criar os itens de lista
@@ -52,6 +55,8 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>, private val 
 
         }
 
+
+
     }
 
 
@@ -63,6 +68,7 @@ class AdpterMedicine(private val itemsformulario: List<Formulario>, private val 
         val data = itemView.findViewById<TextView>(R.id.data)
        val botaoLDF = itemView.findViewById<Button>(R.id.share_FLD)
            val remedios = itemView.findViewById<TextView>(R.id.remedios)
+           val save_button2 = itemView.findViewById<FloatingActionButton>(R.id.save_button2)
        }
 }
 
