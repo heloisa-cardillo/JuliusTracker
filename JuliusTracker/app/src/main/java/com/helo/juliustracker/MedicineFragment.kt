@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.get
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
@@ -45,12 +46,22 @@ class MedicineFragment : BottomSheetDialogFragment() {
         val qtddetail = view.findViewById<TextInputLayout>(R.id.qtd_detail)
         qtddetail.editText?.setText(medicine?.quantidaderemedio.toString())
 
-        val button_save2 = view.findViewById<Button>(R.id.save_button2)
-        button_save2.setOnClickListener {
-            addMedicine(id = "id",remediodetail.editText?.text.toString()?:"", vezesdiadetail.editText?.text.toString()?:"",qtddetail.editText?.text.toString()?:"")
-            setFragmentResult("mudou", bundleOf("adicionou" to true))
-            dismiss()
+            val button_save2 = view.findViewById<Button>(R.id.save_button2)
+            button_save2.setOnClickListener {
+                if (remediodetail !=null && vezesdiadetail != null && qtddetail != null) {
+                addMedicine(
+                    id = "id",
+                    remediodetail.editText?.text.toString() ?: "",
+                    vezesdiadetail.editText?.text.toString() ?: "",
+                    qtddetail.editText?.text.toString() ?: ""
+                )
+                setFragmentResult("mudou", bundleOf("adicionou" to true))
+                dismiss()
+            }  else {
+                    "Preencha os campos"
+                }
         }
+
 
 
     }
@@ -60,6 +71,12 @@ class MedicineFragment : BottomSheetDialogFragment() {
 private fun namesEdit() {
 
 }
+
+
+//if (itemsformulario [position].cantou){
+//    holder.cantou.text = "Ele cantou"
+//} else {
+//    holder.cantou.text = "Ele não cantou"
 
 
 
