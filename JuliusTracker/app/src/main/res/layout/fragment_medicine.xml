@@ -6,12 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MedicineFragment"
     android:orientation="vertical">
-    
-<!--    <androidx.constraintlayout.widget.Placeholder-->
-<!--        android:layout_width="48dp"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:id="@+id/placeholder"-->
-<!--        android:layout_gravity="center"/>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/remedio_detail"
@@ -49,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
-            android:inputType="number|numberDecimal"
+            android:inputType="number"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
-            android:inputType="number|numberDecimal"
+            android:inputType="number"
             android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>

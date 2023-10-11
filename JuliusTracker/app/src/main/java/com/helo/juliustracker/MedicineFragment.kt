@@ -22,7 +22,9 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 import com.helo.juliustracker.databinding.FragmentFormBinding
+import java.util.UUID
 
+@Suppress("ControlFlowWithEmptyBody")
 class MedicineFragment : BottomSheetDialogFragment() {
 
     private lateinit var bingind: FragmentFormBinding
@@ -37,31 +39,36 @@ class MedicineFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val medicine: Medicine? = arguments?.getParcelable("medicine")
         val remediodetail = view.findViewById<TextInputLayout>(R.id.remedio_detail)
-        remediodetail.editText?.setText(medicine?.nomeremedio.toString())
-        val vezesdiadetail = view.findViewById<TextInputLayout>(R.id.vezes_ao_dia_detail)
-        vezesdiadetail.editText?.setText(medicine?.vezesaodia.toString())
-        val qtddetail = view.findViewById<TextInputLayout>(R.id.qtd_detail)
-        qtddetail.editText?.setText(medicine?.quantidaderemedio.toString())
 
-            val button_save2 = view.findViewById<Button>(R.id.save_button2)
-            button_save2.setOnClickListener {
-                if (remediodetail !=null && vezesdiadetail != null && qtddetail != null) {
+        val vezesdiadetail = view.findViewById<TextInputLayout>(R.id.vezes_ao_dia_detail)
+
+        val qtddetail = view.findViewById<TextInputLayout>(R.id.qtd_detail)
+
+        medicine?.let {
+            remediodetail.editText?.setText(it.nomeremedio)
+            vezesdiadetail.editText?.setText(it.vezesaodia)
+            qtddetail.editText?.setText(it.quantidaderemedio)
+        }
+
+        val button_save2 = view.findViewById<Button>(R.id.save_button2)
+        button_save2.setOnClickListener {
+
+            if (remediodetail.editText?.text?.isNotBlank() == true && vezesdiadetail.editText?.text?.isNotBlank() == true && qtddetail.editText?.text?.isNotBlank() == true) {
+                val myUuid = UUID.randomUUID()
                 addMedicine(
-                    id = "id",
+                    id = myUuid.toString(),
                     remediodetail.editText?.text.toString() ?: "",
                     vezesdiadetail.editText?.text.toString() ?: "",
                     qtddetail.editText?.text.toString() ?: ""
                 )
                 setFragmentResult("mudou", bundleOf("adicionou" to true))
                 dismiss()
-            }  else {
-                    "Preencha os campos"
-                }
+            } else {
+                Toast.makeText(requireContext(),"Preencha os campos",Toast.LENGTH_LONG).show()
+            }
         }
-
 
 
     }

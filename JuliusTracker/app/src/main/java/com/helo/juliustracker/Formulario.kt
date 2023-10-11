@@ -132,13 +132,6 @@ public val listaMedice = mutableListOf(
         vezesaodia = "3 vezes",
         quantidaderemedio = "1ml"
     ),
-    Medicine(
-        id ="  val myUuid = UUID.randomUUID()\n" +
-                "val myUuidAsString = myUuid.toString()",
-        nomeremedio = "Brometo",
-        vezesaodia = "2 vezes",
-        quantidaderemedio = "0,01ml"
-    )
 
 )
 
