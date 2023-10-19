@@ -10,9 +10,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,24 +22,25 @@
                 android:id="@+id/toolbarD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_remedio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:title="XX/XX/XX"
                 app:titleMarginStart="140dp"
-                app:titleTextColor="@color/cardin_green"
-                android:background="@drawable/bg_remedio"
-                />
+                app:titleTextColor="@color/cardin_green" />
+
             <ImageView
                 android:id="@+id/return_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
                 android:src="@drawable/keyboard_return"
                 app:layout_constraintStart_toStartOf="@id/toolbarD"
-                android:layout_marginStart="24dp"
-                app:layout_constraintTop_toTopOf="@id/toolbarD"/>
+                app:layout_constraintTop_toTopOf="@id/toolbarD" />
+
             <ImageView
                 android:id="@+id/trash"
                 android:layout_width="16dp"
@@ -84,15 +85,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="60dp" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/peso2"
@@ -100,13 +102,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Peso"
-                app:startIconDrawable="@drawable/balance"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"
                 app:helperText="em gramas"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/balance"
                 app:startIconTint="@color/cardin_green">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -171,14 +173,15 @@
                 android:hint="Quantidade de papinha:"
                 android:textColor="@color/cabbage_pont"
                 android:textSize="12sp"
-                app:startIconDrawable="@drawable/baby_food"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"
                 app:helperText="em ml"
-                app:startIconTint="@color/cardin_green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/switch2">
+                app:layout_constraintTop_toBottomOf="@id/switch2"
+                app:startIconDrawable="@drawable/baby_food"
+                app:startIconTint="@color/cardin_green">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -197,15 +200,13 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_remedio"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linha3"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@id/linha3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

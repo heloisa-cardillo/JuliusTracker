@@ -2,8 +2,6 @@ package com.helo.juliustracker
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.widget.ImageView
-import android.widget.Toast
 
 
 //fun addMedicine(nomeremedio: String,vezesaodia: String,quantidaderemedio: String){
@@ -111,31 +109,31 @@ public val listaMedice = mutableListOf(
     Medicine(
         id = "a6de983b-8814-45aa-a707-bda204da4a5e",
         nomeremedio = "Gardenal",
-        vezesaodia = "3 vezes",
+        vezesaodia = "3",
         quantidaderemedio = "1ml"
     ),
     Medicine(
         id = "62972f6e-40dc-47a3-9044-9261c2f6d61a",
         nomeremedio = "Rivotril",
-        vezesaodia = "2 vezes",
+        vezesaodia = "2",
         quantidaderemedio = "1ml"
     ),
     Medicine(
         id = "d0bc29de-a9cd-4f85-ab04-6011640f6886",
         nomeremedio = "Leviracetam",
-        vezesaodia = "3 vezes",
+        vezesaodia = "2",
         quantidaderemedio= "1ml"
     ),
     Medicine(
         id ="ab193274-2d3a-412c-91f7-73a01a8ec3ad",
         nomeremedio = "Valproato",
-        vezesaodia = "3 vezes",
+        vezesaodia = "2",
         quantidaderemedio = "1ml"
     ),
 
 )
 
-public fun addMedicine (id: String, nomeremedio: String,vezesaodia: String,quantidaderemedio: String) {
+public fun addMedicine (id: String, nomeremedio: String, vezesaodia: String, quantidaderemedio: String) {
     listaMedice.add(
         Medicine(
             id = id,

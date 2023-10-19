@@ -1,38 +1,20 @@
 package com.helo.juliustracker
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
-import android.graphics.drawable.Icon
-import android.media.MediaCodec.MetricsConstants.MODE
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
-import com.helo.juliustracker.databinding.FragmentFormBinding
 
 class FormFragment : Fragment(), OnClickMedicineListener {
 
@@ -62,7 +44,7 @@ class FormFragment : Fragment(), OnClickMedicineListener {
         val adapterDetails = AdapterDetails(listaMedice, this)
         //nao passa contexto para o adapter -> ja tem acesso e pode levar a problemas de memoria (memoryleak)
         rv_remedio.adapter = adapterDetails
-
+        rv_remedio.isNestedScrollingEnabled = false
         val lupa_icon = view.findViewById<ImageView>(R.id.lupa)
         lupa_icon.setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
@@ -88,6 +70,7 @@ class FormFragment : Fragment(), OnClickMedicineListener {
         }
 
     }
+
 
 
     override fun onClick(medicine: Medicine?) {

@@ -1,17 +1,9 @@
 package com.helo.juliustracker
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
@@ -34,8 +26,7 @@ public class AdapterDetails(private val itemsdetails: List<Medicine>, val onClic
 
 
         holder2.nomeremedio.text = itemsdetails[position].nomeremedio.toString()
-        holder2.vezesaodia.text = itemsdetails[position].vezesaodia.toString()
-
+        val vezesaodia_plurals = holder2.itemView.context.resources.getQuantityString(R.plurals.quantidade_plurals, itemsdetails[position].vezesaodia.toInt(), itemsdetails[position].vezesaodia)
 
         holder2.itemView.setOnClickListener{
           val onClickMedicineListener= onClickMedicineListener.onClick(medicine = itemsdetails[position])
@@ -53,13 +44,15 @@ public class AdapterDetails(private val itemsdetails: List<Medicine>, val onClic
     }
 
 
-
   public  class DetailsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nomeremedio = itemView.findViewById<TextView>(R.id.nome_remedio)
         val vezesaodia = itemView.findViewById<TextView>(R.id.vezes_dia)
         val save_button2 = itemView.findViewById<FloatingActionButton>(R.id.save_button2)
         val remedio_detail = itemView.findViewById<TextInputLayout>(R.id.remedio_detail)
+
     }
+
+
 }
 
 
