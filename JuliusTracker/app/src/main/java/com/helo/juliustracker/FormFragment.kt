@@ -1,6 +1,8 @@
 package com.helo.juliustracker
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +15,11 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 
 class FormFragment : Fragment(), OnClickMedicineListener {
+
+    private lateinit var binding: OnClickMedicineListener
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +30,6 @@ class FormFragment : Fragment(), OnClickMedicineListener {
         // nada funciona abaixo do returno
 
     }
-
 
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,8 +62,12 @@ class FormFragment : Fragment(), OnClickMedicineListener {
             findNavController().navigateUp()
         }
 
-        view.findViewById<ExtendedFloatingActionButton>(R.id.save_button).setOnClickListener {
+        view.findViewById<ImageView>(R.id.lupa).setOnClickListener {
             findNavController().navigate(R.id.detail_to_medicine)
+        }
+
+        view.findViewById<ImageView>(R.id.trash).setOnClickListener{
+            showAlertDialog()
         }
 
         setFragmentResultListener("mudou"){requestKey, bundle ->
@@ -69,12 +75,27 @@ class FormFragment : Fragment(), OnClickMedicineListener {
 
         }
 
+
     }
 
 
 
     override fun onClick(medicine: Medicine?) {
         findNavController().navigate(R.id.medicine, args = bundleOf("medicine" to medicine))
+    }
+
+    private fun showAlertDialog(){
+        AlertDialog.Builder(context)
+            .setMessage("Tem certeza?")
+            .setPositiveButton("Sim", DialogInterface.OnClickListener { dialogInterface, i ->
+                Toast.makeText(context, " Deletado", Toast.LENGTH_SHORT).show()
+            })
+            .setNegativeButton("Nao", DialogInterface.OnClickListener { dialogInterface, i ->
+                Toast.makeText(context, " Nao deletado", Toast.LENGTH_SHORT).show()
+            })
+            .setTitle("Deletar")
+            .create()
+            .show()
     }
 
 }
