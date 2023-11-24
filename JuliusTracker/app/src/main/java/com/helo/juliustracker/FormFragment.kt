@@ -60,6 +60,7 @@ class FormFragment : Fragment(), OnClickMedicineListener {
         val return_icon = view.findViewById<ImageView>(R.id.return_icon)
         return_icon.setOnClickListener {
             findNavController().navigateUp()
+            //finished()
         }
 
         view.findViewById<ImageView>(R.id.lupa).setOnClickListener {

@@ -28,6 +28,7 @@ public class AdapterDetails(private val itemsdetails: List<Medicine>, val onClic
         holder2.nomeremedio.text = itemsdetails[position].nomeremedio.toString()
         val vezesaodia_plurals = holder2.itemView.context.resources.getQuantityString(R.plurals.quantidade_plurals, itemsdetails[position].vezesaodia.toInt(), itemsdetails[position].vezesaodia)
 
+        holder2.vezesaodia.text = vezesaodia_plurals
         holder2.itemView.setOnClickListener{
           val onClickMedicineListener= onClickMedicineListener.onClick(medicine = itemsdetails[position])
 
@@ -49,6 +50,7 @@ public class AdapterDetails(private val itemsdetails: List<Medicine>, val onClic
         val vezesaodia = itemView.findViewById<TextView>(R.id.vezes_dia)
         val save_button2 = itemView.findViewById<FloatingActionButton>(R.id.save_button2)
         val remedio_detail = itemView.findViewById<TextInputLayout>(R.id.remedio_detail)
+
 
     }
 

@@ -48,6 +48,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
                 android:src="@drawable/trash"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/toolbarD" />
 
@@ -113,7 +114,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -212,3 +215,4 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--    android:background="?attr/selectableItemBackgroundBorderless"-->

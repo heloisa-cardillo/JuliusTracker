@@ -69,7 +69,7 @@ class MedicineFragment : BottomSheetDialogFragment() {
     private fun doneTeclado(done: TextInputLayout?) {
         done?.editText?.setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener if (done.editText?.text?.isNotBlank() == true &&
-                event?.action == KeyEvent.ACTION_UP && actionId == EditorInfo.IME_ACTION_DONE){
+                actionId == EditorInfo.IME_ACTION_DONE){
                 salvar()
                 true
             } else {
