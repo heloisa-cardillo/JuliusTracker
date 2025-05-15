@@ -1,1 +1,3 @@
-![Julius Tracker Demo](https://github.com/heloisa-cardillo/JuliusTracker/blob/main/JuliusTracker/appGif.gif?raw=true)
+Protótipo do Aplicativo Julius Tracker feito no Android Studio com Kotlin
+
+![Julius Tracker Demo](appGif.gif)
